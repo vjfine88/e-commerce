@@ -13,7 +13,7 @@ before_script:
 build:
   stage: build
   tags:
-        - vj_first
+    - vj_first
   script:
     - npm run build
   artifacts:
@@ -23,16 +23,16 @@ build:
 test:
   stage: test
   tags:
-        - vj_first
+    - vj_first
   script:
     - npm test
 
 deploy:
   stage: deploy
   tags:
-        - vj_first
+    - vj_first
   script:
     - # Add your deployment commands here
-    - echo "Deploying to production"
+      echo "Deploying to production"
   only:
-    - master
+    - main
