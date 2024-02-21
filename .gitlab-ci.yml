@@ -7,18 +7,20 @@ variables:
 
 before_script:
   - npm install -g npm
-  - npm install
 
 build:
   stage: build
   tags:
     - vj_first
   script:
+    - npm install
     - npm test
     - npm run build
   artifacts:
-    path:
-      bulds/
+    paths:
+      - node_modules
+      - bulds
+
 deploy:
   stage: deploy
   tags:
