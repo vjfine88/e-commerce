@@ -19,5 +19,5 @@ deploy:
     - vj_first
   script:
     - echo "Deploying to production..."
-    - npm start
- 
+    - npm run
+    - cp -r $CI_PROJECT_DIR/build/* /var/www/html/ 
