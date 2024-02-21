@@ -2,9 +2,6 @@ stages:
   - build
   - deploy
 
-before_script:
-  - npm install -g npm
-
 build:
   stage: build
   tags:
