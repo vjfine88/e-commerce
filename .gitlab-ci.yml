@@ -1,13 +1,12 @@
 stages:
   - build
-  - test
   - deploy
 
 variables:
-  CI_DEBUG_TRACE: "true"
-  REACT_APP_ENV: production
+  NODE_IMAGE: node:latest
 
 before_script:
+  - npm install -g npm
   - npm install
 
 build:
@@ -15,24 +14,16 @@ build:
   tags:
     - vj_first
   script:
+    - npm test
     - npm run build
   artifacts:
-    paths:
-      - build/
-
-test:
-  stage: test
-  tags:
-    - vj_first
-  script:
-    - npm test
-
+    path:
+      bulds/
 deploy:
   stage: deploy
   tags:
     - vj_first
   script:
-    - # Add your deployment commands here
-      echo "Deploying to production"
-  only:
-    - main
+    - echo "Deploying to production..."
+    - npm run
+ 
