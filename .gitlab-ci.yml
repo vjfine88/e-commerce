@@ -2,7 +2,7 @@ stages:
   - build
   - deploy
 
-variables:
+variables: 
   NODE_IMAGE: node:latest
 
 before_script:
